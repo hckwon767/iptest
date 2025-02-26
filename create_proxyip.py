@@ -1,10 +1,10 @@
 import pandas as pd
 
-# 读取 CSV 文件
+# CSV 파일 읽기
 df = pd.read_csv('latest_sorted.csv')
 
-# 提取第一列数据
-first_column = df.iloc[:, 0]
+# 첫 번째 열과 네 번째 열 추출
+selected_columns = df.iloc[:, [0, 3]]  # 0은 첫 번째 열, 3은 네 번째 열
 
-# 将数据写入文本文件
-first_column.to_csv('proxyip.txt', index=False, header=False)
+# 텍스트 파일로 데이터 저장 (쉼표로 구분)
+selected_columns.to_csv('proxyip.txt', index=False, header=False, sep='#')
